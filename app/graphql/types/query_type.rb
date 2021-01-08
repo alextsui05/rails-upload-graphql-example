@@ -9,5 +9,18 @@ module Types
     def test_field
       "Hello World!"
     end
+
+    field :photo, PhotoType, null: false do
+      description "Find a photo by ID"
+      argument :id, ID, required: true
+    end
+    def photo(id:)
+      Photo.find(id)
+    end
+
+    field :photos, PhotoType.connection_type, null: false
+    def photos
+      Photo.all
+    end
   end
 end

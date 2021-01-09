@@ -62,6 +62,9 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    apollo_upload_server (2.0.3)
+      graphql (>= 1.8)
+      rails (>= 4.2)
     bindex (0.8.1)
     bootsnap (1.5.1)
       msgpack (~> 1.0)
@@ -212,6 +215,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  apollo_upload_server
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)

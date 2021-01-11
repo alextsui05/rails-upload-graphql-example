@@ -1,10 +1,16 @@
 module Types
   class MutationType < Types::BaseObject
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World"
+    # mutation($photo: Upload!) {
+    #   uploadPhoto(photo: $photo) {
+    #     id
+    #     imageUrl
+    #   }
+    # }
+    field :upload_photo, PhotoType, null: true do
+      argument :photo, ApolloUploadServer::Upload, required: true
+    end
+    def upload_photo(photo:)
+      Photo.create(image: photo)
     end
   end
 end
